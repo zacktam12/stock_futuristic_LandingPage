@@ -1,3 +1,5 @@
+// not used in the demo, but useful for organizing sections
+
 import React from "react";
 
 interface DemoSectionProps {
