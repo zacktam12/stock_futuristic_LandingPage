@@ -138,7 +138,7 @@ export default function LandingPage() {
         <div className="mt-20 relative">
           <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-black to-transparent z-10 h-20 bottom-0 top-auto" />
           <Image
-            src="/placeholder.svg?height=600&width=1200"
+            src="/Inventory-Management.jpg?height=600&width=1200"
             alt="Dashboard Preview"
             width={1200}
             height={600}
@@ -288,26 +288,30 @@ export default function LandingPage() {
                 {
                   title: "Dashboard Overview",
                   description: "Real-time metrics and KPIs at a glance",
+                  image: "/images/dashboard-overview.png",
                 },
                 {
                   title: "Product Management",
                   description:
                     "Easily add, edit, and categorize inventory items",
+                  image: "/images/product-management.png",
                 },
                 {
                   title: "Sales Processing",
                   description: "Streamlined checkout and order management",
+                  image: "/images/sales-processing.png",
                 },
                 {
                   title: "Analytics & Reports",
                   description: "Customizable charts and exportable data",
+                  image: "/images/analytics-reports.png",
                 },
               ].map((item, index) => (
                 <CarouselItem key={index}>
                   <div className="p-1">
                     <Card className="bg-gray-50/80 dark:bg-gray-900/50 border-gray-200 dark:border-gray-800 overflow-hidden">
                       <Image
-                        src={`/placeholder.svg?height=500&width=800&text=${item.title}`}
+                        src={`{item.title}`}
                         alt={item.title}
                         width={800}
                         height={500}
