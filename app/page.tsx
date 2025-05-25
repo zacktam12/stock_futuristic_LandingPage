@@ -288,33 +288,33 @@ export default function LandingPage() {
                 {
                   title: "Dashboard Overview",
                   description: "Real-time metrics and KPIs at a glance",
-                  image: "/images/dashboard-overview.png",
+                  image: "/dashboard-overview.png",
                 },
                 {
                   title: "Product Management",
                   description:
                     "Easily add, edit, and categorize inventory items",
-                  image: "/images/product-management.png",
+                  image: "/product-management.png",
                 },
                 {
                   title: "Sales Processing",
                   description: "Streamlined checkout and order management",
-                  image: "/images/sales-processing.png",
+                  image: "/sales-processing.png",
                 },
                 {
                   title: "Analytics & Reports",
                   description: "Customizable charts and exportable data",
-                  image: "/images/analytics-reports.png",
+                  image: "/analytics-reports.png",
                 },
               ].map((item, index) => (
                 <CarouselItem key={index}>
                   <div className="p-1">
                     <Card className="bg-gray-50/80 dark:bg-gray-900/50 border-gray-200 dark:border-gray-800 overflow-hidden">
                       <Image
-                        src={`{item.title}`}
+                        src={item.image}
                         alt={item.title}
-                        width={800}
-                        height={500}
+                        width={100}
+                        height={300}
                         className="w-full h-auto object-cover aspect-video"
                       />
                       <CardContent className="p-6">
