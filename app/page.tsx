@@ -313,9 +313,9 @@ export default function LandingPage() {
                       <Image
                         src={item.image}
                         alt={item.title}
-                        width={100}
-                        height={300}
-                        className="w-full h-auto object-cover aspect-video"
+                        width={600}
+                        height={400}
+                        className="object-cover w-full h-auto rounded-t-lg"
                       />
                       <CardContent className="p-6">
                         <h3 className="text-xl font-bold mb-2 font-mono">
