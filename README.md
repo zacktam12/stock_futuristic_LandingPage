@@ -1,6 +1,6 @@
-# StockX Landing Page
+# StockPilot Landing Page
 
-A modern, responsive landing page for the StockX inventory management system built with Next.js, TypeScript, and Tailwind CSS.
+A modern, responsive landing page for the StockPilot inventory management system built with Next.js, TypeScript, and Tailwind CSS.
 
 ## Features
 

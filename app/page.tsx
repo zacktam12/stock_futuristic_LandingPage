@@ -40,7 +40,7 @@ export default function LandingPage() {
           <div className="flex items-center gap-2">
             <Boxes className="h-8 w-8 text-blue-500" />
             <span className="font-bold text-xl tracking-tight font-mono">
-              StockX
+              StockPilot
             </span>
           </div>
           <nav className="hidden md:flex items-center gap-6">
@@ -443,7 +443,7 @@ export default function LandingPage() {
             <div className="flex items-center gap-2 mb-4 md:mb-0">
               <Boxes className="h-6 w-6 text-blue-500" />
               <span className="font-bold text-lg tracking-tight font-mono">
-                StockX
+                StockPilot
               </span>
               <span className="text-xs text-gray-500 ml-2">v2.5.0</span>
             </div>
@@ -476,7 +476,7 @@ export default function LandingPage() {
             </div>
           </div>
           <div className="mt-6 text-center text-gray-500 text-sm">
-            © {new Date().getFullYear()} StockX. All rights reserved.
+            © {new Date().getFullYear()} StockPilot. All rights reserved.
           </div>
         </div>
       </footer>
