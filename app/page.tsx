@@ -43,6 +43,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { getLoginUrl } from "@/lib/config";
 
 export default function LandingPage() {
   return (
@@ -91,7 +92,7 @@ export default function LandingPage() {
           </nav>
           <div className="flex items-center gap-3">
             <ThemeToggle />
-            <Link href="/login">
+            <Link href={getLoginUrl()} target="_blank" rel="noopener noreferrer">
               <Button
                 variant="outline"
                 className="border-[#3f51b5] text-[#3f51b5] dark:text-[#3f51b5] hover:bg-[#3f51b5]/10 dark:hover:bg-[#3f51b5]/20 font-medium rounded-xl"
@@ -141,12 +142,14 @@ export default function LandingPage() {
               Real-time tracking, powerful analytics, and seamless integration.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-              <Button
-                size="lg"
-                className="bg-[#3f51b5] hover:bg-[#303f9f] text-white font-semibold rounded-xl px-8 py-3 text-lg shadow-medium hover:shadow-strong transition-all duration-300"
-              >
-                Get Started Free <ChevronRight className="ml-2 h-5 w-5" />
-              </Button>
+              <Link href={getLoginUrl()} target="_blank" rel="noopener noreferrer">
+                <Button
+                  size="lg"
+                  className="bg-[#3f51b5] hover:bg-[#303f9f] text-white font-semibold rounded-xl px-8 py-3 text-lg shadow-medium hover:shadow-strong transition-all duration-300"
+                >
+                  Get Started Free <ChevronRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
               <Button
                 size="lg"
                 variant="outline"
@@ -501,12 +504,14 @@ export default function LandingPage() {
                 operations with our next-generation stock management system.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button
-                  size="lg"
-                  className="bg-[#3f51b5] hover:bg-[#303f9f] text-white font-semibold rounded-xl px-8 py-3 text-lg shadow-medium hover:shadow-strong transition-all duration-300"
-                >
-                  Get Started Free <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
+                <Link href={getLoginUrl()} target="_blank" rel="noopener noreferrer">
+                  <Button
+                    size="lg"
+                    className="bg-[#3f51b5] hover:bg-[#303f9f] text-white font-semibold rounded-xl px-8 py-3 text-lg shadow-medium hover:shadow-strong transition-all duration-300"
+                  >
+                    Get Started Free <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </Link>
                 <Button
                   size="lg"
                   variant="outline"
