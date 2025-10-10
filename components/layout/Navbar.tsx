@@ -86,7 +86,7 @@ export function Navbar() {
               <Button
                 size="sm"
                 variant="outline"
-                className="hidden sm:inline-flex border-gray-600 text-gray-300 hover:bg-gray-800 hover:text-white font-medium rounded-lg px-4 py-2 transition-all duration-300 text-sm"
+                className="hidden sm:inline-flex border-gray-600 bg-white text-black hover:bg-gray-800 hover:text-white font-medium rounded-lg px-4 py-2 transition-all duration-300 text-sm"
               >
                 Existing Users
               </Button>
@@ -154,7 +154,7 @@ export function Navbar() {
               <Button
                 size="lg"
                 variant="outline"
-                className="w-full border-gray-600 text-gray-300 hover:bg-gray-800 hover:text-white font-semibold rounded-xl transition-all duration-300"
+                className="w-full border-gray-600 bg-white text-black hover:bg-gray-800 hover:text-white font-semibold rounded-xl transition-all duration-300"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Login <Lock className="ml-2 h-4 w-4" />
