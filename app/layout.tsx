@@ -1,18 +1,26 @@
 import type React from "react";
 import type { Metadata } from "next";
-import { Space_Grotesk } from "next/font/google";
+import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 
-const spaceGrotesk = Space_Grotesk({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-space-grotesk",
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+  variable: "--font-poppins",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "StockX_inventory_control",
+  title: "StockPilot - Modern Inventory Management",
   description:
-    "A futuristic stock management system designed for the modern enterprise.",
+    "A modern, intelligent inventory management system designed for the digital age. Real-time tracking, powerful analytics, and seamless integration.",
 };
 
 export default function RootLayout({
@@ -22,7 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${spaceGrotesk.variable} font-sans`}>
+      <body className={`${inter.variable} ${poppins.variable} font-sans`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
