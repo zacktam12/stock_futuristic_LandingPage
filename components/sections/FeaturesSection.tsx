@@ -1,11 +1,18 @@
+"use client";
+
 import React from "react";
+import { motion } from "framer-motion";
 import {
   BarChart4,
-  Database,
-  Layers,
-  Scan,
-  Shield,
+  Package,
   Users,
+  Truck,
+  Receipt,
+  ShoppingCart,
+  AlertTriangle,
+  DollarSign,
+  UserCircle,
+  Settings,
   Star,
 } from "lucide-react";
 import {
@@ -15,94 +22,185 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { AnimatedBadge } from "@/components/ui/animated-badge";
 
 const features = [
   {
-    title: "Real-time Stock Tracking",
+    title: "Real-time Dashboard",
     description:
-      "Monitor inventory levels across multiple locations with live updates and intelligent alerts.",
-    icon: <Layers className="h-10 w-10 text-[#3f51b5]" />,
-    gradient: "from-blue-500 to-blue-600",
+      "Monitor your business with live KPIs, revenue tracking, and interactive analytics dashboard.",
+    icon: <BarChart4 className="h-10 w-10 text-white" />,
+    gradient: "from-blue-500 to-blue-700",
   },
   {
-    title: "Smart Barcode Scanning",
+    title: "Product Management",
     description:
-      "Quickly process items with built-in barcode and QR code scanning capabilities.",
-    icon: <Scan className="h-10 w-10 text-green-500" />,
-    gradient: "from-green-500 to-green-600",
+      "Complete inventory control with product tracking, categories, and stock level monitoring.",
+    icon: <Package className="h-10 w-10 text-white" />,
+    gradient: "from-green-500 to-green-700",
   },
   {
-    title: "Role-Based Access Control",
+    title: "Customer Database",
     description:
-      "Control who can view and modify data with customizable permission levels.",
-    icon: <Users className="h-10 w-10 text-purple-500" />,
-    gradient: "from-purple-500 to-purple-600",
+      "Manage customer relationships with comprehensive customer profiles and sales history.",
+    icon: <Users className="h-10 w-10 text-white" />,
+    gradient: "from-purple-500 to-purple-700",
   },
   {
-    title: "Purchase & Sales Automation",
+    title: "Supplier Management",
     description:
-      "Streamline your workflow with automated purchase orders and sales processing.",
-    icon: <Database className="h-10 w-10 text-amber-500" />,
-    gradient: "from-amber-500 to-amber-600",
+      "Track vendors, manage purchase orders, and analyze supplier performance metrics.",
+    icon: <Truck className="h-10 w-10 text-white" />,
+    gradient: "from-amber-500 to-amber-700",
   },
   {
-    title: "Enterprise Security",
+    title: "Sales Processing",
     description:
-      "Bank-grade security with encryption, multi-factor authentication, and compliance.",
-    icon: <Shield className="h-10 w-10 text-red-500" />,
-    gradient: "from-red-500 to-red-600",
+      "Streamlined sales transactions with receipt generation and payment tracking.",
+    icon: <Receipt className="h-10 w-10 text-white" />,
+    gradient: "from-red-500 to-red-700",
   },
   {
-    title: "Advanced Analytics",
+    title: "Purchase Orders",
     description:
-      "Gain insights with customizable dashboards and exportable reports.",
-    icon: <BarChart4 className="h-10 w-10 text-cyan-500" />,
-    gradient: "from-cyan-500 to-cyan-600",
+      "Automated purchase order management with supplier integration and cost tracking.",
+    icon: <ShoppingCart className="h-10 w-10 text-white" />,
+    gradient: "from-indigo-500 to-indigo-700",
+  },
+  {
+    title: "Low Stock Alerts",
+    description:
+      "Intelligent inventory monitoring with customizable alerts and reorder suggestions.",
+    icon: <AlertTriangle className="h-10 w-10 text-white" />,
+    gradient: "from-orange-500 to-orange-700",
+  },
+  {
+    title: "Inventory Valuation",
+    description:
+      "Track inventory value, cost analysis, and financial insights with detailed reporting.",
+    icon: <DollarSign className="h-10 w-10 text-white" />,
+    gradient: "from-emerald-500 to-emerald-700",
+  },
+  {
+    title: "User Management",
+    description:
+      "Role-based access control with admin and staff permissions for secure operations.",
+    icon: <UserCircle className="h-10 w-10 text-white" />,
+    gradient: "from-cyan-500 to-cyan-700",
   },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut",
+    },
+  },
+};
+
 export function FeaturesSection() {
   return (
-    <section id="features" className="py-20 relative bg-white dark:bg-gray-900">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-4 py-2 rounded-full text-sm font-medium mb-4">
-            <Star className="h-4 w-4" />
-            Powerful Features
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 font-heading text-gray-900 dark:text-white">
-            Everything You Need to Succeed
+    <section id="features" className="py-20 relative bg-gray-50 dark:bg-[#0a0a0a] overflow-hidden">
+      {/* Subtle animated background */}
+      <motion.div
+        className="absolute inset-0 opacity-30"
+        animate={{
+          backgroundPosition: ["0% 0%", "100% 100%"],
+        }}
+        transition={{
+          duration: 20,
+          repeat: Infinity,
+          repeatType: "reverse",
+        }}
+        style={{
+          backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.1) 1px, transparent 1px)",
+          backgroundSize: "50px 50px",
+        }}
+      />
+
+      <div className="container mx-auto px-4 relative">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <AnimatedBadge icon={Star} text="Powerful Features" color="blue" />
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 mt-6 font-heading text-gray-900 dark:text-white">
+            Complete Inventory Management Solution
           </h2>
           <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-lg">
-            Our comprehensive system combines cutting-edge technology with intuitive design
-            to deliver a seamless inventory management experience.
+            StockPilot provides everything you need to manage your inventory, track sales, 
+            monitor suppliers, and grow your business with powerful analytics and reporting.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+        >
           {features.map((feature, index) => (
-            <Card
+            <motion.div
               key={index}
-              className="bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 shadow-soft hover:shadow-medium transition-all duration-300 group hover:scale-105"
+              variants={cardVariants}
+              whileHover={{ 
+                y: -8, 
+                rotateX: 2,
+                rotateY: 2,
+              }}
+              transition={{ duration: 0.3 }}
             >
-              <CardHeader>
-                <div className={`mb-4 w-16 h-16 rounded-xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center shadow-medium group-hover:shadow-strong transition-all duration-300`}>
-                  {feature.icon}
-                </div>
-                <CardTitle className="text-xl font-heading text-gray-900 dark:text-white">
-                  {feature.title}
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="text-gray-600 dark:text-gray-400 text-base leading-relaxed">
-                  {feature.description}
-                </CardDescription>
-              </CardContent>
-            </Card>
+              <Card
+                className="bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-800 shadow-soft hover:shadow-strong transition-all duration-300 group h-full relative overflow-hidden"
+              >
+                {/* Gradient overlay on hover */}
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                />
+                
+                <CardHeader className="relative">
+                  <motion.div
+                    className={`mb-4 w-16 h-16 rounded-lg bg-gradient-to-br ${feature.gradient} flex items-center justify-center shadow-soft`}
+                    whileHover={{ 
+                      rotate: [0, -10, 10, -10, 0],
+                      scale: 1.1,
+                    }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    {feature.icon}
+                  </motion.div>
+                  <CardTitle className="text-xl font-heading text-gray-900 dark:text-white">
+                    {feature.title}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="relative">
+                  <CardDescription className="text-gray-600 dark:text-gray-400 text-base leading-relaxed">
+                    {feature.description}
+                  </CardDescription>
+                </CardContent>
+              </Card>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
 }
-
