@@ -1,7 +1,7 @@
 // Configuration for the landing page
 export const config = {
   // Frontend application URL
-  frontendUrl: process.env.NEXT_PUBLIC_FRONTEND_URL || 'http://localhost:5500',
+  frontendUrl: process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:5500',
   
   // API URL (if needed)
   apiUrl: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000',
