@@ -17,7 +17,7 @@ export const config = {
 };
 
 // Helper function to get login URL
-export const getLoginUrl = () => `${config.frontendUrl}/login`;
+export const getLoginUrl = () => `${config.frontendUrl}`;
 
 // Helper function to get dashboard URL
 export const getDashboardUrl = () => `${config.frontendUrl}/dashboard`; 
